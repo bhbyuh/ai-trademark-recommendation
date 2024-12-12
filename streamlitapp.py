@@ -34,22 +34,16 @@ if submit_button:
         
         # Prepare lists for DataFrame
         class_name = []
-        subclas_id = []
-        description = []
+        class_id = []
         
-        # Process the data
         for classs in data:
-            subclass_list = data[classs]["sub classes"]
-            for a in subclass_list:
-                class_name.append(classs)
-                subclas_id.append(a["sub class id"])
-                description.append(a["description"])
-        
-        # Create and display DataFrame
+            class_name.append(classs)
+            class_id.append(data[classs]["class id"])
+
         df = pd.DataFrame({
-            "Class Name": class_name,
-            "Sub Class ID": subclas_id,
-            "Description": description
+            "Class ID": class_id,
+            "Class Name": class_name
         })
         
+        df = df.applymap(lambda x: f"{int(x)}" if isinstance(x, (int, float)) else x)
         st.dataframe(df.reset_index(drop=True), use_container_width=True)
