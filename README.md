@@ -16,6 +16,7 @@ This project is built to provide users with the top trademark recommendations fr
 - **Frontend:** Streamlit
 - **Backend:** FastAPI
 - **Vector Database:** Pinecone
+- Langchain
 - **AI Models:**
   - Hybrid search for initial data retrieval
   - Cohere's Rerank model for result refinement
